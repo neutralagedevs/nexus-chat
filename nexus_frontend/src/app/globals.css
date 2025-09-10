@@ -1,0 +1,503 @@
+@import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
+
+:root {
+  /* Nexus Brand Colors */
+  --nexus-primary-50: #eef2ff;
+  --nexus-primary-100: #e0e7ff;
+  --nexus-primary-500: #6366f1;
+  --nexus-primary-600: #5b5def;
+  --nexus-primary-900: #312e81;
+  
+  --nexus-secondary-50: #faf5ff;
+  --nexus-secondary-100: #f3e8ff;
+  --nexus-secondary-500: #8b5cf6;
+  --nexus-secondary-600: #7c3aed;
+  --nexus-secondary-900: #581c87;
+  
+  --nexus-accent-50: #ecfdf5;
+  --nexus-accent-100: #d1fae5;
+  --nexus-accent-500: #10b981;
+  --nexus-accent-600: #059669;
+  --nexus-accent-900: #064e3b;
+  
+  --nexus-neutral-50: #f8fafc;
+  --nexus-neutral-100: #f1f5f9;
+  --nexus-neutral-300: #cbd5e1;
+  --nexus-neutral-500: #64748b;
+  --nexus-neutral-700: #334155;
+  --nexus-neutral-900: #0f172a;
+  
+  /* Nexus Typography */
+  --font-heading: 'Inter', sans-serif;
+  --font-body: 'Inter', sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+  
+  /* Light theme defaults */
+  --background: var(--nexus-neutral-50);
+  --foreground: var(--nexus-neutral-900);
+  --card-background: #ffffff;
+  --border-color: var(--nexus-neutral-300);
+}
+
+[data-theme="dark"] {
+  --background: var(--nexus-neutral-900);
+  --foreground: var(--nexus-neutral-50);
+  --card-background: #1e293b;
+  --border-color: #475569;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-body);
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  overflow: hidden;
+  position: fixed;
+  width: 100%;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+html {
+  height: 100%;
+  overflow: hidden;
+  position: fixed;
+  width: 100%;
+}
+
+/* Nexus Typography Classes */
+.nexus-h1 { 
+  font-family: var(--font-heading);
+  font-size: 2.25rem;
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: -0.025em;
+  color: var(--nexus-neutral-900);
+}
+
+.nexus-h2 { 
+  font-family: var(--font-heading);
+  font-size: 1.875rem;
+  font-weight: 600;
+  line-height: 1.3;
+  letter-spacing: -0.025em;
+  color: var(--nexus-neutral-900);
+}
+
+.nexus-h3 { 
+  font-family: var(--font-heading);
+  font-size: 1.5rem;
+  font-weight: 600;
+  line-height: 1.4;
+  color: var(--nexus-neutral-900);
+}
+
+.nexus-body { 
+  font-family: var(--font-body);
+  font-size: 1rem;
+  line-height: 1.6;
+  color: var(--nexus-neutral-700);
+}
+
+.nexus-caption { 
+  font-family: var(--font-body);
+  font-size: 0.875rem;
+  line-height: 1.5;
+  color: var(--nexus-neutral-500);
+}
+
+.nexus-code {
+  font-family: var(--font-mono);
+  font-size: 0.875rem;
+  line-height: 1.5;
+}
+
+/* Nexus Button System */
+.nexus-button-primary {
+  background: var(--nexus-primary-500);
+  color: white;
+  font-weight: 500;
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.5rem;
+  transition: all 0.2s ease-in-out;
+  box-shadow: 0 4px 6px -1px rgba(99, 102, 241, 0.1), 0 2px 4px -1px rgba(99, 102, 241, 0.06);
+  border: none;
+  cursor: pointer;
+}
+
+.nexus-button-primary:hover {
+  background: var(--nexus-primary-600);
+  box-shadow: 0 10px 15px -3px rgba(99, 102, 241, 0.1), 0 4px 6px -2px rgba(99, 102, 241, 0.05);
+  transform: translateY(-1px);
+}
+
+.nexus-button-secondary {
+  background: var(--nexus-neutral-100);
+  color: var(--nexus-neutral-900);
+  font-weight: 500;
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.5rem;
+  border: 1px solid var(--nexus-neutral-300);
+  transition: all 0.2s ease-in-out;
+  cursor: pointer;
+}
+
+.nexus-button-secondary:hover {
+  background: var(--nexus-neutral-200);
+  border-color: var(--nexus-neutral-400);
+}
+
+.nexus-button-gradient {
+  background: linear-gradient(135deg, var(--nexus-primary-500), var(--nexus-secondary-500));
+  color: white;
+  font-weight: 500;
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.5rem;
+  transition: all 0.2s ease-in-out;
+  box-shadow: 0 4px 6px -1px rgba(99, 102, 241, 0.1), 0 2px 4px -1px rgba(139, 92, 246, 0.06);
+  border: none;
+  cursor: pointer;
+}
+
+.nexus-button-gradient:hover {
+  background: linear-gradient(135deg, var(--nexus-primary-600), var(--nexus-secondary-600));
+  box-shadow: 0 10px 15px -3px rgba(99, 102, 241, 0.1), 0 4px 6px -2px rgba(139, 92, 246, 0.05);
+  transform: translateY(-1px);
+}
+
+/* Nexus Card System */
+.nexus-card {
+  background: var(--card-background);
+  border-radius: 0.75rem;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+  border: 1px solid var(--border-color);
+  transition: box-shadow 0.2s ease-in-out;
+  padding: 1.5rem;
+}
+
+.nexus-card:hover {
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+.nexus-card-elevated {
+  background: var(--card-background);
+  border-radius: 0.75rem;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  border: 1px solid var(--border-color);
+  transition: all 0.2s ease-in-out;
+  padding: 1.5rem;
+}
+
+.nexus-card-elevated:hover {
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  transform: translateY(-2px);
+}
+
+.nexus-gradient-card {
+  background: linear-gradient(135deg, var(--nexus-primary-50), var(--nexus-secondary-50));
+  border-radius: 0.75rem;
+  border: 1px solid var(--nexus-primary-200);
+  padding: 1.5rem;
+  backdrop-filter: blur(8px);
+}
+
+/* Nexus Animations */
+@keyframes nexus-pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.6; }
+}
+
+@keyframes nexus-connect {
+  0% { transform: scale(0.8); opacity: 0; }
+  50% { transform: scale(1.05); }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+@keyframes nexus-intelligence-reveal {
+  0% { 
+    opacity: 0;
+    transform: translateY(20px) scale(0.9);
+  }
+  50% {
+    opacity: 0.8;
+    transform: translateY(-5px) scale(1.02);
+  }
+  100% { 
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.nexus-loading {
+  animation: nexus-pulse 2s ease-in-out infinite;
+}
+
+.nexus-card-enter {
+  animation: nexus-connect 0.3s ease-out;
+}
+
+.nexus-hero-reveal {
+  animation: nexus-intelligence-reveal 0.8s ease-out;
+}
+
+/* Custom animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideInFromLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInFromRight {
+  from {
+    opacity: 0;
+    transform: translateX(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes pulse {
+
+  0%,
+  100% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0.5;
+  }
+}
+
+.animate-fadeIn {
+  animation: fadeIn 0.5s ease-out;
+}
+
+.animate-slideInLeft {
+  animation: slideInFromLeft 0.5s ease-out;
+}
+
+.animate-slideInRight {
+  animation: slideInFromRight 0.5s ease-out;
+}
+
+.animate-pulse-custom {
+  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+/* Custom scrollbar for light theme */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 4px;
+}
+
+/* Dark theme scrollbar */
+[data-theme="dark"] ::-webkit-scrollbar-track {
+  background: #1a1a1a;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #4a5568;
+  border-radius: 4px;
+  transition: background 0.2s ease;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #6b7280;
+}
+
+/* Better scrolling for chat */
+.chat-container {
+  scrollbar-width: thin;
+  scrollbar-color: #4a5568 #1a1a1a;
+  scroll-behavior: smooth;
+  overflow-anchor: none;
+}
+
+/* Chat-specific scrollbar styling */
+.chat-messages::-webkit-scrollbar {
+  width: 6px;
+}
+
+.chat-messages::-webkit-scrollbar-track {
+  background: rgba(31, 31, 31, 0.3);
+}
+
+.chat-messages::-webkit-scrollbar-thumb {
+  background: rgba(68, 68, 68, 0.8);
+  border-radius: 3px;
+}
+
+.chat-messages::-webkit-scrollbar-thumb:hover {
+  background: rgba(85, 85, 85, 0.9);
+}
+
+/* Focus styles for accessibility */
+button:focus,
+input:focus,
+textarea:focus,
+select:focus {
+  outline: 2px solid #3b82f6;
+  outline-offset: 2px;
+}
+
+/* Animation for loading states */
+@keyframes pulse {
+
+  0%,
+  100% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0.5;
+  }
+}
+
+.animate-pulse {
+  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+/* Custom slider styles */
+.slider::-webkit-slider-thumb {
+  appearance: none;
+  height: 20px;
+  width: 20px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #3b82f6, #1d4ed8);
+  cursor: pointer;
+  box-shadow: 0 4px 8px rgba(59, 130, 246, 0.3);
+  transition: all 0.2s ease;
+}
+
+.slider::-webkit-slider-thumb:hover {
+  transform: scale(1.1);
+  box-shadow: 0 6px 12px rgba(59, 130, 246, 0.4);
+}
+
+.slider::-moz-range-thumb {
+  height: 20px;
+  width: 20px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #3b82f6, #1d4ed8);
+  cursor: pointer;
+  border: none;
+  box-shadow: 0 4px 8px rgba(59, 130, 246, 0.3);
+  transition: all 0.2s ease;
+}
+
+.slider::-moz-range-thumb:hover {
+  transform: scale(1.1);
+  box-shadow: 0 6px 12px rgba(59, 130, 246, 0.4);
+}
+
+/* Glassmorphism effects */
+.glass {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Gradient animations */
+@keyframes gradient-shift {
+  0% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.gradient-animate {
+  background-size: 400% 400%;
+  animation: gradient-shift 3s ease infinite;
+}
+
+/* Custom button hover effects */
+.btn-modern {
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.btn-modern::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+  transition: left 0.5s ease;
+}
+
+.btn-modern:hover::before {
+  left: 100%;
+}
+
+/* Enhanced shadows */
+.shadow-glow {
+  box-shadow: 0 0 20px rgba(59, 130, 246, 0.3);
+}
+
+.shadow-glow-green {
+  box-shadow: 0 0 20px rgba(34, 197, 94, 0.3);
+}
+
+.shadow-glow-red {
+  box-shadow: 0 0 20px rgba(239, 68, 68, 0.3);
+}
+
+/* Subtle animations */
+@keyframes float {
+
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+
+  50% {
+    transform: translateY(-5px);
+  }
+}
+
+.float {
+  animation: float 3s ease-in-out infinite;
+}
+
+/* Improved focus states */
+.focus-modern:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.5), 0 0 0 4px rgba(59, 130, 246, 0.1);
+}
